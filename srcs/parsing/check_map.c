@@ -14,8 +14,8 @@ int	check_double_start(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W')
+			if (map[i][j] == 'N' || map[i][j] == 'S'
+				|| map[i][j] == 'E' || map[i][j] == 'W')
 				count++;
 			j++;
 		}
@@ -38,9 +38,11 @@ int	check_floor(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '0' && (map[i][j - 1] == ' ' && map[i][j - 1] == 0))
+			if (map[i][j] == '0' && (map[i][j - 1] == ' '
+				|| map[i][j - 1] == 0))
 				return (0);
-			if (map[i][j] == '0' && (map[i][j + 1] == ' ' || map[i][j + 1] == 0))
+			if (map[i][j] == '0' && (map[i][j + 1] == ' '
+				|| map[i][j + 1] == 0))
 				return (0);
 			j++;
 		}
@@ -61,9 +63,11 @@ int	check_floor_2(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '0' && (map[i - 1][j] == ' ' || map[i - 1][j] == 0))
+			if (map[i][j] == '0' && (map[i - 1][j] == ' '
+				|| map[i - 1][j] == 0))
 				return (0);
-			if (map[i][j] == '0' && (map[i + 1][j] == ' ' || map[i + 1][j] == 0))
+			if (map[i][j] == '0' && (map[i + 1][j] == ' '
+				|| map[i + 1][j] == 0))
 				return (0);
 			j++;
 		}
@@ -85,10 +89,12 @@ int	check_start(char **map)
 		while (map[i][j])
 		{
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W') && (map[i][j + 1] == ' ' || map[i][j + 1] == 0))
+				|| map[i][j] == 'W') && (map[i][j + 1] == ' '
+				|| map[i][j + 1] == 0))
 				return (0);
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W') && (map[i][j - 1] == ' ' || map[i][j - 1] == 0))
+				|| map[i][j] == 'W') && (map[i][j - 1] == ' '
+				|| map[i][j - 1] == 0))
 				return (0);
 			j++;
 		}
@@ -110,10 +116,12 @@ int	check_start_2(char **map)
 		while (map[i][j])
 		{
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W') && (map[i - 1][j] == ' ' || map[i - 1][j] == 0))
+				|| map[i][j] == 'W') && (map[i - 1][j] == ' '
+				|| map[i - 1][j] == 0))
 				return (0);
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W') && (map[i + 1][j] == ' ' || map[i + 1][j] == 0))
+				|| map[i][j] == 'W') && (map[i + 1][j] == ' '
+				|| map[i + 1][j] == 0))
 				return (0);
 			j++;
 		}

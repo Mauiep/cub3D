@@ -23,6 +23,6 @@ int	check_double_start(char **map);
 char	**make_map(char **file);
 
 //free
-void    free_map(char **map);
+void	free_map(char **map);
 
 #endif
