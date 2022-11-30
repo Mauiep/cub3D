@@ -1,10 +1,11 @@
 NAME = cub3D
 
 SRCS =	srcs/main.c \
-		srcs/parsing_map.c \
 		srcs/make_map.c \
 		srcs/free.c \
 		\
+		srcs/parsing/parsing_map.c \
+		srcs/parsing/check_map.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c
 
@@ -23,6 +24,7 @@ TFLAGS = libft/libft.a
 $(OBJS_DIR)%.o : %.c includes/cub3D.h
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)srcs
+	@mkdir -p $(OBJS_DIR)srcs/parsing
 	@mkdir -p $(OBJS_DIR)gnl
 	@$(CC) $(CFLAGS) -c $< -o $@
 

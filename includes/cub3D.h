@@ -13,6 +13,11 @@
 int	file_is_cub(char *av);
 void	parsing_map(char **map);
 int	check_carac(char **map);
+int	check_start_2(char **map);
+int	check_start(char **map);
+int	check_floor_2(char **map);
+int	check_floor(char **map);
+int	check_double_start(char **map);
 
 //creation map
 char	**make_map(char **file);
