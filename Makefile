@@ -6,6 +6,8 @@ SRCS =	srcs/main.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \
+		srcs/parsing/parsing_elem.c \
+		\
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c
 

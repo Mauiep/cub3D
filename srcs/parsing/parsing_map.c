@@ -38,11 +38,34 @@ int	check_carac(char **map)
 	return (1);
 }
 
-//parsing complet de la map
+void	init_info(t_info *info)
+{
+	info->no = 0;
+	info->so = 0;
+	info->we = 0;
+	info->ea = 0;
+	info->f = 0;
+	info->c = 0;
+	info->index = 0;
+}
+
+//parsing des elements de la map + parsing map
 void	parsing_map(char **map)
 {
-	if (!check_carac(map) || !check_double_start(map) || !check_floor(map)
-		|| !check_floor_2(map) || !check_start(map) || !check_start_2(map))
+	t_info	info;
+	int		i;
+
+	init_info(&info);
+	if (!check_elem_map(map, &info))
+	{
+		free_map(map);
+		printf("Error elem map\n");
+		exit(0);
+	}
+	i = info.index;
+	if (!check_carac(map + i) || !check_double_start(map + i)
+		|| !check_floor(map + i) || !check_floor_2(map + i)
+		|| !check_start(map + i) || !check_start_2(map + i))
 	{
 		free_map(map);
 		printf("Error map\n");
