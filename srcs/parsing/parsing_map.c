@@ -50,19 +50,18 @@ void	init_info(t_info *info)
 }
 
 //parsing des elements de la map + parsing map
-void	parsing_map(char **map)
+void	parsing_map(char **map, t_info *info)
 {
-	t_info	info;
 	int		i;
 
-	init_info(&info);
-	if (!check_elem_map(map, &info))
+	init_info(info);
+	if (!check_elem_map(map, info))
 	{
 		free_map(map);
 		printf("Error elem map\n");
 		exit(0);
 	}
-	i = info.index;
+	i = info->index;
 	if (!check_carac(map + i) || !check_double_start(map + i)
 		|| !check_floor(map + i) || !check_floor_2(map + i)
 		|| !check_start(map + i) || !check_start_2(map + i))

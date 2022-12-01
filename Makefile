@@ -3,6 +3,8 @@ NAME = cub3D
 SRCS =	srcs/main.c \
 		srcs/make_map.c \
 		srcs/free.c \
+		srcs/init_data.c \
+		srcs/utils.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \
@@ -21,7 +23,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-TFLAGS = libft/libft.a
+TFLAGS = mlx/libmlx_Linux.a -lm -lXext -lX11 libft/libft.a
 
 $(OBJS_DIR)%.o : %.c includes/cub3D.h
 	@mkdir -p $(OBJS_DIR)

@@ -1,5 +1,25 @@
 #include "../includes/cub3D.h"
 
+//decoupe la map pour ne mettre que la map sans les elements dans la structure
+void	get_map(t_data *data, t_info *info, char **map)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = info->index;
+	data->map = NULL;
+	data->map = malloc(sizeof(char *) * count_line_map(map));
+	while (map[i])
+	{
+		data->map[j] = ft_strdup(map[i]);
+		i++;
+		j++;
+	}
+	data->map[j] = NULL;
+	free_map(map);
+}
+
 //traitement fd -> char *
 static char	*convert_map(char **file)
 {
