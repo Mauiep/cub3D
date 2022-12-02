@@ -1,5 +1,6 @@
 #include "../includes/cub3D.h"
 
+//save l'elem F ou C dans une variable
 void	get_in_struct_3(t_data *data, char *line)
 {
 	int	i;
@@ -7,19 +8,20 @@ void	get_in_struct_3(t_data *data, char *line)
 	i = 0;
 	if (line[i] == 'F')
 	{
-		while (line[i] != '.')
+		while (line[i] == ' ')
 			i++;
 		data->F = ft_strdup(line + i);
 	}
 	i = 0;
 	if (line[i] == 'C')
 	{
-		while (line[i] != '.')
+		while (line[i] == ' ')
 			i++;
 		data->C = ft_strdup(line + i);
 	}
 }
 
+//save l'elem WE ou EA dans une variable
 void	get_in_struct_2(t_data *data, char *line)
 {
 	int	i;
@@ -27,19 +29,20 @@ void	get_in_struct_2(t_data *data, char *line)
 	i = 0;
 	if (line[i] == 'W')
 	{
-		while (line[i] != '.')
+		while (line[i] == ' ')
 			i++;
 		data->WE = ft_strdup(line + i);
 	}
 	i = 0;
 	if (line[i] == 'E')
 	{
-		while (line[i] != '.')
+		while (line[i] == ' ')
 			i++;
 		data->EA = ft_strdup(line + i);
 	}
 }
 
+//save l'elem NO ou SO dans une variable
 void	get_in_struct(t_data *data, char *line)
 {
 	int	i;
@@ -47,19 +50,20 @@ void	get_in_struct(t_data *data, char *line)
 	i = 0;
 	if (line[i] == 'N')
 	{
-		while (line[i] != '.')
+		while (line[i] == ' ')
 			i++;
 		data->NO = ft_strdup(line + i);
 	}
 	i = 0;
 	if (line[i] == 'S')
 	{
-		while (line[i] != '.')
+		while (line[i] == ' ')
 			i++;
 		data->SO = ft_strdup(line + i);
 	}
 }
 
+//verif l'id de l'elem
 void	get_textures(t_data *data, char *line)
 {
 	int	i;
@@ -81,6 +85,7 @@ void	get_textures(t_data *data, char *line)
 		get_in_struct_3(data, line + i);
 }
 
+//check pr chaque ligne quel elem map c'est
 void	get_elem_map(t_data *data, t_info *info, char **map)
 {
 	int	i;
