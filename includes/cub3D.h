@@ -46,21 +46,24 @@ void	parsing_map(char **map, t_info *info);
 int	check_carac(char **map);
 int	check_start_2(char **map);
 int	check_start(char **map);
-int	check_floor_2(char **map);
 int	check_floor(char **map);
+int	check_floor_2(char **map);
 int	check_double_start(char **map);
 int check_elem_map(char **map, t_info *info);
 int index_map(char **map);
 
 //init data
 void    init_data(t_data *data, t_info *info, char **map);
+void	get_elem_map(t_data *data, t_info *info, char **map);
 
 //creation map
 char	**make_map(char **file);
 void    get_map(t_data *data, t_info *info, char **map);
 
 //free
+void	ft_error(int id, char **map);
 void	free_map(char **map);
+void    free_data(t_data *data);
 
 //utils
 int     count_line_map(char **map);

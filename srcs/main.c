@@ -21,11 +21,11 @@ int	main(int ac, char **av)
 
 	int	i;
 	i = 0;
-	printf("value->NO=%s\n\n", data.NO);
 	while (data.map[i])
 	{
 		printf("%s\n", data.map[i]);
 		i++;
 	}
+	free_data(&data);
 	return (0);
 }

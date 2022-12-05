@@ -4,6 +4,7 @@ SRCS =	srcs/main.c \
 		srcs/make_map.c \
 		srcs/free.c \
 		srcs/init_data.c \
+		srcs/get_elem.c \
 		srcs/utils.c \
 		\
 		srcs/parsing/parsing_map.c \

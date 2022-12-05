@@ -15,3 +15,24 @@ void	free_map(char **map)
 	}
 	free(map);
 }
+
+void	free_data(t_data *data)
+{
+	free_map(data->map);
+	free(data->NO);
+	free(data->SO);
+	free(data->WE);
+	free(data->EA);
+	free(data->F);
+	free(data->C);
+}
+
+void	ft_error(int id, char **map)
+{
+	if (id == 0)
+		ft_putstr_fd("Error: elem map\n", 1);
+	else if (id == 1)
+		ft_putstr_fd("Error: map\n", 1);
+	free_map(map);
+	exit(0);
+}
