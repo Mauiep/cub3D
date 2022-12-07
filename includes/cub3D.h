@@ -10,62 +10,62 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-typedef struct  s_info
+typedef struct s_info
 {
-        int     no;
-        int     so;
-        int     we;
-        int     ea;
-        int     f;
-        int     c;
-        int     index;
-}               t_info;
+	int	no;
+	int	so;
+	int	we;
+	int	ea;
+	int	f;
+	int	c;
+	int	index;
+}		t_info;
 
-typedef struct  s_data
+typedef struct s_data
 {
-        char    **map;
-        void    *mlx;
-        void    *win;
-        void    *img;
-        char    *addr;
-        int     bpp;
-        int     ll;
-        int     end;
-        char    *NO;
-        char    *SO;
-        char    *WE;
-        char    *EA;
-        char    *F;
-        char    *C;
-}               t_data;
-
+	char	**map;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		ll;
+	int		end;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	char	*f;
+	char	*c;
+}		t_data;
 
 //parsing
-int	file_is_cub(char *av);
+int		file_is_cub(char *av);
 void	parsing_map(char **map, t_info *info);
-int	check_carac(char **map);
-int	check_start_2(char **map);
-int	check_start(char **map);
-int	check_floor(char **map);
-int	check_floor_2(char **map);
-int	check_double_start(char **map);
-int check_elem_map(char **map, t_info *info);
-int index_map(char **map);
+int		check_carac(char **map);
+int		check_start_2(char **map);
+int		check_start(char **map);
+int		check_floor(char **map);
+int		check_floor_2(char **map);
+int		check_double_start(char **map);
+int		check_elem_map(char **map, t_info *info);
+int		index_map(char **map);
 
 //init data
-void    init_data(t_data *data, t_info *info, char **map);
+void	init_data(t_data *data, t_info *info, char **map);
 void	get_elem_map(t_data *data, t_info *info, char **map);
+char	*convert_color(char *line);
 
 //creation map
 char	**make_map(char **file);
-void    get_map(t_data *data, t_info *info, char **map);
+void	get_map(t_data *data, t_info *info, char **map);
 
 //free
 void	ft_error(int id, char **map);
 void	free_map(char **map);
-void    free_data(t_data *data);
+void	free_data(t_data *data);
 
 //utils
-int     count_line_map(char **map);
+int		count_line_map(char **map);
 
 #endif

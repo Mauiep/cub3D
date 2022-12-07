@@ -10,14 +10,14 @@ void	get_in_struct_3(t_data *data, char *line)
 	{
 		while (line[i] == 'F' || line[i] == ' ')
 			i++;
-		data->F = ft_strdup(line + i);
+		data->f = convert_color(line + i);
 	}
 	i = 0;
 	if (line[i] == 'C')
 	{
 		while (line[i] == 'C' || line[i] == ' ')
 			i++;
-		data->C = ft_strdup(line + i);
+		data->c = convert_color(line + i);
 	}
 }
 
@@ -31,14 +31,14 @@ void	get_in_struct_2(t_data *data, char *line)
 	{
 		while (line[i] == 'W' || line[i] == 'E' || line[i] == ' ')
 			i++;
-		data->WE = ft_strdup(line + i);
+		data->we = ft_strdup(line + i);
 	}
 	i = 0;
 	if (line[i] == 'E')
 	{
 		while (line[i] == 'E' || line[i] == 'A' || line[i] == ' ')
 			i++;
-		data->EA = ft_strdup(line + i);
+		data->ea = ft_strdup(line + i);
 	}
 }
 
@@ -52,14 +52,14 @@ void	get_in_struct(t_data *data, char *line)
 	{
 		while (line[i] == 'N' || line[i] == 'O' || line[i] == ' ')
 			i++;
-		data->NO = ft_strdup(line + i);
+		data->no = ft_strdup(line + i);
 	}
 	i = 0;
 	if (line[i] == 'S')
 	{
 		while (line[i] == 'S' || line[i] == 'O' || line[i] == ' ')
 			i++;
-		data->SO = ft_strdup(line + i);
+		data->so = ft_strdup(line + i);
 	}
 }
 

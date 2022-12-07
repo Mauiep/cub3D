@@ -19,12 +19,12 @@ void	free_map(char **map)
 void	free_data(t_data *data)
 {
 	free_map(data->map);
-	free(data->NO);
-	free(data->SO);
-	free(data->WE);
-	free(data->EA);
-	free(data->F);
-	free(data->C);
+	free(data->no);
+	free(data->so);
+	free(data->we);
+	free(data->ea);
+	free(data->f);
+	free(data->c);
 }
 
 void	ft_error(int id, char **map)

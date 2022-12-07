@@ -6,6 +6,7 @@ SRCS =	srcs/main.c \
 		srcs/init_data.c \
 		srcs/get_elem.c \
 		srcs/utils.c \
+		srcs/convert_color.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \
