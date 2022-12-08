@@ -38,6 +38,28 @@ int	check_carac(char **map)
 	return (1);
 }
 
+//check ligne par ligne si c'est un element de la map
+int	check_elem_map(char **map, t_info *info)
+{
+	int	i;
+
+	i = 0;
+	while (map[i] && (info->c < 1 || info->f < 1 || info->ea < 1
+			|| info->no < 1 || info->so < 1 || info->we < 1))
+	{
+		if (!check_elem_line(map[i], info))
+			return (0);
+		i++;
+	}
+	if (!nbr_elem(info))
+		return (0);
+	if (!check_color_elem(map, i))
+		return (0);
+	info->index = i;
+	return (1);
+}
+
+//init les info a 0
 void	init_info(t_info *info)
 {
 	info->no = 0;

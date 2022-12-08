@@ -49,6 +49,9 @@ int		check_floor(char **map);
 int		check_floor_2(char **map);
 int		check_double_start(char **map);
 int		check_elem_map(char **map, t_info *info);
+int		check_color_elem(char **map, int index);
+int		check_elem_line(char *line, t_info *info);
+int		nbr_elem(t_info *info);
 int		index_map(char **map);
 
 //init data

@@ -46,21 +46,45 @@ int	check_elem_line(char *line, t_info *info)
 		return (0);
 }
 
-//check ligne par ligne si c'est un element de la map
-int	check_elem_map(char **map, t_info *info)
+//check si la ligne F ou C contient des nombres ou virgules
+int	check_value_color(char *line)
 {
 	int	i;
 
 	i = 0;
-	while (map[i] && (info->c < 1 || info->f < 1 || info->ea < 1
-			|| info->no < 1 || info->so < 1 || info->we < 1))
+	while (line[i] == 'F' || line[i] == 'C' || line[i] == ' ')
+		i++;
+	if (line[i] == ',')
+		return (0);
+	while (line[i])
 	{
-		if (!check_elem_line(map[i], info))
+		if (line[i] != ',' && (line[i] < '0' || line[i] > '9'))
+			return (0);
+		if (line[i] == ',' && line[i + 1] == ',')
 			return (0);
 		i++;
 	}
-	if (!nbr_elem(info))
-		return (0);
-	info->index = i;
+	return (1);
+}
+
+//repere la ligne concernant la couleur == C ou F
+int	check_color_elem(char **map, int index)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < index)
+	{
+		j = 0;
+		while (map[i][j] == ' ')
+			j++;
+		if (map[i][j] == 'F' || map[i][j] == 'C')
+		{
+			if (!check_value_color(map[i]))
+				return (0);
+		}
+		i++;
+	}
 	return (1);
 }

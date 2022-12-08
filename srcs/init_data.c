@@ -2,7 +2,7 @@
 
 //init les donnees
 //data->map == map
-//data->NO == l'elem NO
+//data->so == l'elem NO
 //etc...
 void	init_data(t_data *data, t_info *info, char **map)
 {

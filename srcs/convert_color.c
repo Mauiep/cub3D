@@ -1,5 +1,6 @@
 #include "../includes/cub3D.h"
 
+//invers tab
 void	ft_rev_tab(char *tab, int size)
 {
 	int	i;
@@ -15,6 +16,7 @@ void	ft_rev_tab(char *tab, int size)
 	}
 }
 
+//rempli le tab en hexa
 long int	ft_fill_tab(char *tab, long int num, char *base_to)
 {
 	int			neg;
@@ -41,6 +43,7 @@ long int	ft_fill_tab(char *tab, long int num, char *base_to)
 	return (i);
 }
 
+//convert la value color C ou F de decimal a hexa
 char	*ft_convert_base(char *nbr, char *base_to)
 {
 	long int	num;
@@ -69,7 +72,6 @@ char	*convert_color(char *line)
 	char	**tmp;
 	int		i;
 
-//pars elem color ici ex: 200,0,0
 	i = 0;
 	tmp = ft_split(line, ',');
 	str = malloc(sizeof(char) * 5);
