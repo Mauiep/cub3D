@@ -21,6 +21,23 @@ typedef struct s_info
 	int	index;
 }		t_info;
 
+typedef struct s_img
+{
+        void                    *img;
+        unsigned int    *addr;
+        int                             ll;
+        int                             bpp;
+        int                             end;
+}               t_img;
+
+typedef struct s_textures
+{
+	t_img   no;
+    t_img   so;
+    t_img   we;
+    t_img   ea;
+}               t_textures;
+
 typedef struct s_data
 {
 	char	**map;
@@ -37,6 +54,7 @@ typedef struct s_data
 	char	*ea;
 	char	*f;
 	char	*c;
+	t_textures      tex;
 }		t_data;
 
 //parsing
@@ -56,6 +74,7 @@ int		index_map(char **map);
 
 //init data
 void	init_data(t_data *data, t_info *info, char **map);
+void	init_textures(t_data *data);
 void	get_elem_map(t_data *data, t_info *info, char **map);
 char	*convert_color(char *line);
 

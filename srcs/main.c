@@ -16,16 +16,15 @@ int	main(int ac, char **av)
 	map = make_map(&av[1]);
 	parsing_map(map, &info);
 	init_data(&data, &info, map);
-	// mlx_loop(data.mlx);
-
-
-	int	i;
-	i = 0;
-	while (data.map[i])
-	{
-		printf("%s\n", data.map[i]);
-		i++;
-	}
-	free_data(&data);
+	init_textures(&data);
+	mlx_loop(data.mlx);
+	// int	i;
+	// i = 0;
+	// while (data.map[i])
+	// {
+	// 	printf("%s\n", data.map[i]);
+	// 	i++;
+	// }
+	// free_data(&data);
 	return (0);
 }
