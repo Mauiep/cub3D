@@ -84,10 +84,12 @@ void	get_map(t_data *data, t_info *info, char **map);
 
 //free
 void	ft_error(int id, char **map);
+void	ft_error_2(t_data *data, int index);
 void	free_map(char **map);
 void	free_data(t_data *data);
 
 //utils
 int		count_line_map(char **map);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

@@ -27,6 +27,16 @@ void	free_data(t_data *data)
 	free(data->c);
 }
 
+void	ft_error_2(t_data *data, int index)
+{
+	if (index == 1)
+		ft_putstr_fd("Error: same textures\n", 1);
+	else if (index == 2)
+		ft_putstr_fd("Error: elem textures\n", 1);
+	free_data(data);
+	exit(0);
+}
+
 void	ft_error(int id, char **map)
 {
 	if (id == 0)
