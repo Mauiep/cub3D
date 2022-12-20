@@ -10,8 +10,6 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define MAPSIZE 64
-
 typedef struct s_info
 {
 	int	no;
