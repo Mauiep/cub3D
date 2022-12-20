@@ -1,5 +1,6 @@
 #include "../includes/cub3D.h"
 
+//free la map
 void	free_map(char **map)
 {
 	int	i;
@@ -16,6 +17,7 @@ void	free_map(char **map)
 	free(map);
 }
 
+//free tte les data
 void	free_data(t_data *data)
 {
 	free_map(data->map);
@@ -25,8 +27,10 @@ void	free_data(t_data *data)
 	free(data->ea);
 	free(data->f);
 	free(data->c);
+	free(data->mlx);
 }
 
+//free et quitte le programme -> erreur textures
 void	ft_error_2(t_data *data, int index)
 {
 	if (index == 1)
@@ -37,6 +41,7 @@ void	ft_error_2(t_data *data, int index)
 	exit(0);
 }
 
+//free et quitte le programme -> erreur parsing map
 void	ft_error(int id, char **map)
 {
 	if (id == 0)

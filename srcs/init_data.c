@@ -1,5 +1,7 @@
 #include "../includes/cub3D.h"
 
+//check en premier lieu si 2 textures sont similaire
+//ensuite check si elles sont presente
 void	check_textures(t_data *data, int index)
 {
 	if (ft_strcmp(data->no, data->so) || ft_strcmp(data->no, data->ea)
@@ -20,12 +22,13 @@ void	check_textures(t_data *data, int index)
 	}
 }
 
+//initialise les textures
 void	init_textures(t_data *data)
 {
 	int	h;
 	int	l;
 
-	check_same(data);
+	check_textures(data, 2);
 	data->tex.no.img = mlx_xpm_file_to_image(data->mlx, data->no, &l, &h);
 	data->tex.so.img = mlx_xpm_file_to_image(data->mlx, data->so, &l, &h);
 	data->tex.we.img = mlx_xpm_file_to_image(data->mlx, data->we, &l, &h);
@@ -48,6 +51,7 @@ void	init_textures(t_data *data)
 //etc...
 void	init_data(t_data *data, t_info *info, char **map)
 {
+	data->mlx = malloc(sizeof(t_data));
 	get_elem_map(data, info, map);
 	get_map(data, info, map);
 	data->mlx = mlx_init();
