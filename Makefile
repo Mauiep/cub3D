@@ -1,8 +1,8 @@
 NAME = cub3D
 
 SRCS =	srcs/main.c \
-		srcs/draw_map.c \
 		srcs/free.c \
+		srcs/make_map.c \
 		srcs/init_data.c \
 		srcs/get_elem.c \
 		srcs/utils.c \
