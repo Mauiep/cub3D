@@ -54,6 +54,12 @@ typedef struct s_data
 	char	*ea;
 	char	*f;
 	char	*c;
+	int		pos_x;
+	int		pos_y;
+	int		move;
+	char	direction;
+	int		dir_right;
+	int		dir_left;
 	t_textures      tex;
 }		t_data;
 
@@ -81,6 +87,11 @@ char	*convert_color(char *line);
 //creation map
 char	**make_map(char **file);
 void	get_map(t_data *data, t_info *info, char **map);
+
+//gameplay
+void    keyboard(t_data *data);
+void    gameplay(t_data *data);
+void    my_position(t_data *data);
 
 //free
 void	ft_error(int id, char **map);

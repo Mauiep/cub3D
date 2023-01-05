@@ -7,6 +7,9 @@ SRCS =	srcs/main.c \
 		srcs/get_elem.c \
 		srcs/utils.c \
 		srcs/convert_color.c \
+		srcs/gameplay.c \
+		srcs/pos_player.c \
+		srcs/keyboard.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \
