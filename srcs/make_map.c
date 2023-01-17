@@ -1,6 +1,10 @@
 #include "../includes/cub3D.h"
 
-//decoupe la map pour ne mettre que la map sans les elements dans la structure
+/*
+	Cette fonction decoupe le contenu du tableau map pour
+	ne mettre que la map sans les autres elements dans la structure
+*/
+
 void	get_map(t_data *data, t_info *info, char **map)
 {
 	int	i;

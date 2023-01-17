@@ -17,7 +17,7 @@ void	ft_rev_tab(char *tab, int size)
 }
 
 //rempli le tab en hexa
-long int	ft_fill_tab(char *tab, long int num, char *base_to)
+long int	ft_filine_length_tab(char *tab, long int num, char *base_to)
 {
 	int			neg;
 	int			base_len;
@@ -55,38 +55,29 @@ char	*ft_convert_base(char *nbr, char *base_to)
 	if (!tab)
 		return (NULL);
 	num = ft_atoi(nbr);
-	i = ft_fill_tab(tab, num, base_to);
+	i = ft_filine_length_tab(tab, num, base_to);
 	ft_rev_tab(tab, i);
 	tab[i] = '\0';
 	free(nbr);
 	return (tab);
 }
+/*
+	convert_color recupere la ligne du fichier contenant les valeurs R, G et B,
+	et nous renvoie la valeur de la couleur en long int grace a la formule :
+	R * 65536 + G * 256 + B
 
-//convert valeur color F et C en hexa pour data->
-//CHECK FREE !!!!!!!!!!! --> CHECK FT_STRJOIN == FREE S1 // FREE S2
-//LEAKS OK A PRIORI !!!
-char	*convert_color(char *line)
+	return (-1) =  probleme de malloc
+
+*/
+long int	convert_color(char *line)
 {
-	char	*str;
-	char	*convert;
-	char	**tmp;
-	int		i;
+	long int	result;
+	char		**tmp;
 
-	i = 0;
+	result = 0;
 	tmp = ft_split(line, ',');
-	str = malloc(sizeof(char) * 5);
-	str[0] = '0';
-	str[1] = 'x';
-	str[2] = '0';
-	str[3] = '0';
-	str[4] = '\0';
-	while (tmp[i])
-	{
-		convert = ft_convert_base(tmp[i], "0123456789ABCDEF");
-		str = ft_strjoin(str, convert);
-		free(convert);
-		i++;
-	}
-	free(tmp);
-	return (str);
+	if (!tmp)
+		return (-1);
+	result = ft_atoi(tmp[0]) * 65536 + ft_atoi(tmp[1]) * 256 + ft_atoi(tmp[2]);
+	return (free(tmp[2]), free(tmp[1]), free(tmp[0]), free(tmp), result);
 }

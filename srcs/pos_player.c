@@ -1,6 +1,56 @@
 #include "../includes/cub3D.h"
 
-//localise le player position et stock dans variable + stock direction camera
+/*
+
+    Definit "au depart" les valeurs pour l'angle + init
+
+*/
+
+void    direction_zero(t_data *data, char orientation)
+{
+    if (orientation == 'N' || orientation == 'S')
+    {
+        data->dir_y = 0;
+        data->plane_x = 0;
+    }
+    else if (orientation == 'E' || orientation == 'W')
+    {
+        data->dir_x = 0;
+        data->plane_y = 0;
+    }
+}
+
+void    orientation_player(t_data *data, char orientation)
+{
+    if (orientation == 'N')
+    {
+        data->dir_x = -1;
+        data->plane_y = 0.66;
+    }
+    if (orientation == 'S')
+    {
+        data->dir_x = 1;
+        data->plane_y = -0.66;
+    }
+    if (orientation == 'E')
+    {
+        data->dir_y = 1;
+        data->plane_x = 0.66;
+    }
+    if (orientation == 'W')
+    {
+        data->dir_y = -1;
+        data->plane_x = -0.66;
+    }
+    direction_zero(data, orientation);
+}
+
+/*
+    Cette fonction cherche la position du joueur dans la map
+    et le stock dans la structure data (pos_x, pos_y)
+    On recupere aussi la direction (NEED EXPLICATION SUR CETTE PARTIE)
+*/
+
 void    my_position(t_data *data)
 {
     int i;
@@ -15,9 +65,11 @@ void    my_position(t_data *data)
             if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
                 || data->map[i][j] == 'W' || data->map[i][j] == 'E')
                 {
-                    data->pos_x = i;
-                    data->pos_y = j;
-                    data->direction = data->map[i][j];
+                    data->pos_x = i + 0.0005;
+                    data->pos_y = j + 0.0005;
+                    data->map[i][j] = 0;
+//                    data->direction = data->map[i][j];// valable uniquement a l'initialisation, donc a enlever
+                    orientation_player(data, data->map[i][j]);                
                 }
             j++;
         }

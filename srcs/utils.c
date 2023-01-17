@@ -1,6 +1,9 @@
 #include "../includes/cub3D.h"
 
-//compte le nombre de ligne de la map
+/*
+	Cette fonction compte simplement le nombre de lignes de la map.
+*/
+
 int	count_line_map(char **map)
 {
 	int	i;
@@ -10,6 +13,10 @@ int	count_line_map(char **map)
 		i++;
 	return (i);
 }
+
+/*
+	man strcmp, fonction de la libft
+*/
 
 int	ft_strcmp(char *s1, char *s2)
 {
