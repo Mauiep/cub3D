@@ -24,12 +24,12 @@ typedef struct s_info
 
 typedef struct s_img
 {
-        void                    *img;
-        unsigned int    *addr;
-        int                             ll;
-        int                             bits_per_pixel;
-        int                             end;
-}               t_img;
+        void			*img;
+        unsigned int	*addr;
+        int				ll;
+        int				bits_per_pixel;
+        int				end;
+}						t_img;
 
 typedef struct s_textures
 {
@@ -63,10 +63,13 @@ typedef struct s_data
 	float			plane_y;
 	float			speedrot;
 	float			speedmove;
-	int			move;// touche direcionnel "AVANCER"
-	char		direction;// /!\ plus necessaire
-	int			dir_right;// touche de direction droite appuyee
-	int			dir_left;// touche de direction gauche appuyee
+	int			move_forward;// touche direcionnel "AVANCER"
+	int			move_back; // touche directionnel "RECULER"
+	int			move_right;
+	int			move_left;
+	char		direction; // /!\ plus necessaire
+	int			rot_right;// touche de direction droite appuyee
+	int			rot_left;// touche de direction gauche appuyee
 	t_textures	tex;
 }		t_data;
 
@@ -98,7 +101,7 @@ void		get_map(t_data *data, t_info *info, char **map);
 //gameplay
 void    	keyboard(t_data *data);
 void    	gameplay(t_data *data);
-void    	my_position(t_data *data);
+void    	init_position(t_data *data);
 //draw	
 void		ft_pixel_put(t_data *data, int x, int y, int color);
 void		draw_background(t_data *data);

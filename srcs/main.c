@@ -10,7 +10,7 @@
 int	update(t_data *data)
 {
 	usleep(100000);
-	fprintf(stderr, "refreshed\n");
+	//fprintf(stderr, "refreshed\n");
 	mlx_destroy_image(data->mlx, data->img);
     data->img = mlx_new_image(data->mlx, 1280, 720);
     data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
@@ -35,8 +35,10 @@ int	main(int ac, char **av)
 	}
 	map = make_map(&av[1]);
 	parsing_map(map, &info);
-	init_data(&data, &info, map);
+	if (init_data(&data, &info, map) < 0)
+		return (printf("error\n"));
 	init_textures(&data);
+	init_position(&data);
 	keyboard(&data);
 	mlx_loop_hook(data.mlx, &update, &data);
 	mlx_loop(data.mlx);

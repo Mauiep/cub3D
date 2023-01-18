@@ -4,6 +4,9 @@
 
     Definit "au depart" les valeurs pour l'angle + init
 
+
+    Par defaut on initialise tout a 0 donc cette
+    fonction peut etre evite
 */
 
 void    direction_zero(t_data *data, char orientation)
@@ -27,17 +30,17 @@ void    orientation_player(t_data *data, char orientation)
         data->dir_x = -1;
         data->plane_y = 0.66;
     }
-    if (orientation == 'S')
+    else if (orientation == 'S')
     {
         data->dir_x = 1;
         data->plane_y = -0.66;
     }
-    if (orientation == 'E')
+    else if (orientation == 'E')
     {
         data->dir_y = 1;
         data->plane_x = 0.66;
     }
-    if (orientation == 'W')
+    else if (orientation == 'W')
     {
         data->dir_y = -1;
         data->plane_x = -0.66;
@@ -51,7 +54,7 @@ void    orientation_player(t_data *data, char orientation)
     On recupere aussi la direction (NEED EXPLICATION SUR CETTE PARTIE)
 */
 
-void    my_position(t_data *data)
+void    init_position(t_data *data)
 {
     int i;
     int j;
@@ -64,13 +67,12 @@ void    my_position(t_data *data)
         {
             if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
                 || data->map[i][j] == 'W' || data->map[i][j] == 'E')
-                {
-                    data->pos_x = i + 0.0005;
-                    data->pos_y = j + 0.0005;
-                    data->map[i][j] = 0;
-//                    data->direction = data->map[i][j];// valable uniquement a l'initialisation, donc a enlever
-                    orientation_player(data, data->map[i][j]);                
-                }
+            {
+                data->pos_x = i + 0.0005;
+                data->pos_y = j + 0.0005;
+                orientation_player(data, data->map[i][j]);
+                data->map[i][j] = 0;
+            }
             j++;
         }
         i++;

@@ -30,6 +30,12 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 TFLAGS = mlx/libmlx_Linux.a -lm -lXext -lX11 libft/libft.a
 
+GREEN		=	\e[92;5;118m
+YELLOW		=	\e[93;5;226m
+GRAY		=	\e[33;2;37m
+RESET		=	\e[0m
+CURSIVE		=	\e[33;3m
+
 $(OBJS_DIR)%.o : %.c includes/cub3D.h
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)srcs
@@ -38,18 +44,22 @@ $(OBJS_DIR)%.o : %.c includes/cub3D.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS_PREFIXED)
-	make -C ./libft
+	@printf "$(CURSIVE)$(GRAY) 	- Compiling $(NAME)... $(RESET)\n"
+	@make -C ./libft
 	@$(CC) -o $(NAME) $(OBJS_PREFIXED) $(CFLAGS) $(TFLAGS)
+	@printf "$(_SUCCESS) $(GREEN)- Executable ready.\n$(RESET)"
 
 all: $(NAME)
 
 clean:
-	make clean -C ./libft
+	@make clean -C ./libft
 	@rm -rf $(OBJS_DIR)
+	@printf "$(YELLOW)    - Object files removed.$(RESET)\n"
 	
 fclean: clean
-	make fclean -C ./libft
+	@make fclean -C ./libft
 	@rm -f $(NAME)
+	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
 	
 re: fclean all
 

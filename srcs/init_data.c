@@ -57,7 +57,6 @@ void	init_textures(t_data *data)
 */
 int	init_data(t_data *data, t_info *info, char **map)
 {
-	//data->mlx = malloc(sizeof(t_data));
 	if (get_elem_map(data, info, map) == -1)
 		return (-1);
 	get_map(data, info, map);

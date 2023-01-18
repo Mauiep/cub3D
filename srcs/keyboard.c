@@ -12,27 +12,43 @@ int     ft_exit(t_data *data)
 
 /*
     Cette fonction indique a notre structure quel touche "utile" est pressee
-    (ex: dir_left => le personnage tourne sur lui meme vers gauche)
+    (ex: rot_left => le personnage effectue une rotation vers la gauche)
+    /!\ A CHANGER POUR CLAVIER QWERTY /!\
 */
 int     key_pressed(int key, t_data *data)
 {
     printf("key = %d\n", key);
-    if (key == 65307) //53 before
+    if (key == 65307)
         ft_exit(data);
-    else if (key == 122) //13 before
+    else if (key == 122)
     {
         printf("avant\n");
-        data->move = 1;
+        data->move_forward = 1;
     }
-    else if (key == 100) //0 before
+    else if (key == 115)
     {
-        printf("left\n");
-        data->dir_left = 1;
+        printf("recul\n");
+        data->move_back = 1;
+    }
+    else if (key == 100)
+    {
+        printf("droite\n");
+        data->move_right = 1;
+    }
+    else if (key == 113)
+    {
+        printf("gauche\n");
+        data->move_left = 1;
+    }
+    else if (key == 65361)
+    {
+        printf("rotation gauche\n");
+        data->rot_left = 1;
     } 
-    else if (key == 113) //1 before
+    else if (key == 65363) //
     {
-        printf("right\n");
-        data->dir_right = 1;
+        printf("rotation droite\n");
+        data->rot_right = 1;
     }
     else
         return (0);
