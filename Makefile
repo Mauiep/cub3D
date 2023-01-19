@@ -10,6 +10,7 @@ SRCS =	srcs/main.c \
 		srcs/gameplay.c \
 		srcs/pos_player.c \
 		srcs/keyboard.c \
+		srcs/raycast.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \

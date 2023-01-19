@@ -39,6 +39,25 @@ typedef struct s_textures
     t_img   ea;
 }               t_textures;
 
+typedef struct s_raycast
+{
+	double	cameraX; // calculer la position des rayons
+	double	raydirX; // calculer la direction X des rayons
+	double	raydirY; // calculer la direction Y des rayons
+	int		mapX; // dans quelle case de la carte nous sommes X
+	int		mapY; // dans quelle case de la carte nous sommes Y
+	double	sideDistX; // longueur du rayon de la position actuelle jusqu'a x
+	double	sideDistY; // longueur du rayon de la position actuelle jusqu'a y
+	double	deltaDistX; // longueur du rayon d'un côté x jusqu'a y
+	double	deltaDistY; // longueur du rayon d'un côté y jusqu'a x
+	int		stepX; // vers la direction x (+1 ou -1)
+	int		stepY; // vers la direction y (+1 ou -1)
+	int		hit; // un mur a-t-il ete touche ? (1 si oui)
+	int		side; // un mur NS ou EW a-t-il été touché ?
+
+}				t_raycast;
+
+
 typedef struct s_data
 {
 	char		**map;// tableau representant notre map, remplies de 0, 1 et P
@@ -71,6 +90,7 @@ typedef struct s_data
 	int			rot_right;// touche de direction droite appuyee
 	int			rot_left;// touche de direction gauche appuyee
 	t_textures	tex;
+	t_raycast	raycast;
 }		t_data;
 
 //parsing
