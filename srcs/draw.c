@@ -33,7 +33,8 @@ void	draw_map(t_data *data, int x)
 }
 
 /*
-	prepare la taille de la texture a afficher par rapport a sa distance avec le player
+	prepare la taille de la texture a afficher par rapport
+	a sa distance avec le player
 */
 
 void	draw_texture(t_data *data)

@@ -40,6 +40,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (-1) =  probleme de malloc
 
 */
+
 long int	convert_color(char *line)
 {
 	long int	result;

@@ -6,8 +6,11 @@
 
 int	update(t_data *data)
 {
+	int	x;
+
+	x = 0;
 	gameplay(data);
-	ft_raycast(data);
+	ft_raycast(data, x);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	return (0);
 }
@@ -17,7 +20,7 @@ int	update(t_data *data)
 
 	+
 
-	VERIFIER SI FREE CORRECT DANS (((FREE.C -> FT_ERROR_2)))
+	VERIFIER SI FREE CORRECT DANS (((FT_ERROR.C -> FT_ERROR_2)))
 */
 
 int	main(int ac, char **av)

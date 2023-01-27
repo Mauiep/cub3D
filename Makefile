@@ -11,6 +11,7 @@ SRCS =	srcs/main.c \
 		srcs/gameplay.c \
 		srcs/keyboard.c \
 		srcs/raycast.c \
+		srcs/ft_error.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \

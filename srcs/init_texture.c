@@ -23,7 +23,7 @@ int	init_texture(t_data *data)
 		while (++j < 64 * 64)
 			data->buffer[i][j] = 0;
 	}
-    return (1);
+	return (1);
 }
 
 int	init_buffer(t_data *data)
@@ -52,8 +52,8 @@ void	load_image(t_data *data, int *texture, char *path, t_img *img)
 	y = 0;
 	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->imgWidth,
 			&img->imgHeight);
-	img->data = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->ll,
-			&img->end);
+	img->data = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel,
+			&img->ll, &img->end);
 	while (y < img->imgHeight)
 	{
 		x = 0;

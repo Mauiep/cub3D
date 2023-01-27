@@ -150,17 +150,18 @@ void		draw_texture(t_data *data);
 
 //raycast
 void	init_raycast(t_data *data, int x);
-void    ft_raycast(t_data *data);
+void    ft_raycast(t_data *data, int x);
 void    perform_dda(t_data *data);
 void	add_texture(t_data *data, int x, int y);
 void	init_step(t_data *data);
-void	drawEnd_drawStart(t_data *data);
+void	draw_start_end(t_data *data);
 
 //free
 void		ft_error(int id, char **map);
 void		ft_error_2(t_data *data, int index);
 void		free_map(char **map);
 void		free_all(t_data *data);
+void		free_data(t_data *data);
 
 //utils
 int			count_line_map(char **map);
