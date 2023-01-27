@@ -49,6 +49,7 @@ void	free_all(t_data *data)
 {
 	free_data(data);
 	free_texture(data);
+	mlx_destroy_image(data->mlx, data->img);
 	mlx_clear_window(data->mlx, data->win);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);

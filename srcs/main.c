@@ -16,10 +16,6 @@ int	update(t_data *data)
 }
 
 /*
-	/!\ 2 LEAKS STILL REACHABLE /!\
-
-	+
-
 	VERIFIER SI FREE CORRECT DANS (((FT_ERROR.C -> FT_ERROR_2)))
 */
 
