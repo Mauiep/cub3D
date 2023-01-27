@@ -50,16 +50,16 @@ void	load_image(t_data *data, int *texture, char *path, t_img *img)
 	int	x;
 
 	y = 0;
-	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->imgWidth,
-			&img->imgHeight);
+	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_width,
+			&img->img_height);
 	img->data = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->ll, &img->end);
-	while (y < img->imgHeight)
+	while (y < img->img_height)
 	{
 		x = 0;
-		while (x < img->imgWidth)
+		while (x < img->img_width)
 		{
-			texture[img->imgWidth * y + x] = img->data[img->imgWidth * y + x];
+			texture[img->img_width * y + x] = img->data[img->img_width * y + x];
 			x++;
 		}
 		y++;

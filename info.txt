@@ -1,0 +1,58 @@
+STRUCT RAYCAST
+
+camera_x -->>-->> calculer la position des rayons
+raydir_x -->>-->> calculer la direction X des rayons
+raydir_y -->>-->> calculer la direction Y des rayons
+map_x -->>-->> dans quelle case de la carte nous sommes X
+map_y -->>-->> dans quelle case de la carte nous sommes Y
+side_dist_x -->>-->> longueur du rayon de la position actuelle jusqu'a x
+side_dist_y -->>-->> longueur du rayon de la position actuelle jusqu'a y
+delta_dist_x -->>-->> longueur du rayon d'un côté x jusqu'a y
+delta_dist_y -->>-->> longueur du rayon d'un côté y jusqu'a x
+step_x -->>-->> vers la direction x (+1 ou -1)
+step_y -->>-->> vers la direction y (+1 ou -1)
+hit -->>-->> un mur a-t-il ete touche ? (1 si oui)
+side -->>-->> un mur NS ou EW a-t-il été touché ?
+perp_wall_dist -->>-->> calcule la distance du rayon perpendiculaire (la distance euclidienne donnerait un effet de fish-eye!)
+line_height -->>-->> calcule la hauteur de la ligne à dessiner sur l'écran
+draw_start -->>-->>calculer le pixel le plus bas et le plus haut à remplir dans la bande actuelle
+draw_end -->>-->> calculer le pixel le plus bas et le plus haut à remplir dans la bande actuelle
+wall_x
+tex_x
+tex_y
+tex_pos
+step
+color
+
+STRUCT CLASSIC
+
+**map-->>-->> tableau representant notre map, remplies de 0, 1 et P
+*mlx-->>-->> pointeur mlx
+*win-->>-->> pointeur sur notre fenetre cub3d
+*img-->>-->>	pointeur sur l'image qu'on affiche a l'ecran
+*addr-->>-->> addr est recuperee avec get_addr
+bits_per_pixel-->>-->> bits_per_pixel est recuperee avec get_addr
+line_length-->>-->> line_length est recuperee avec get_addr
+end
+*no-->>-->> path MUR NORD
+*so-->>-->> path MUR SUD
+*we-->>-->> path MUR OUEST
+*ea-->>-->> path MUR EST
+color_f-->>-->> couleur du sol
+color_c-->>-->> couleur du ciel
+pos_x-->>-->> position x du personnage
+pos_y-->>-->> position y du personnage
+dir_x
+dir_y
+plane_x
+plane_y
+speedrot
+speedmove
+move_forward-->>-->> touche direcionnel "AVANCER"
+move_back-->>-->> touche directionnel "RECULER"
+move_right
+move_left
+rot_right-->>-->> touche de direction droite appuyee
+rot_left-->>-->> touche de direction gauche appuyee
+**texture
+buffer[1280][720]

@@ -9,13 +9,15 @@
 
 void	init_raycast(t_data *data, int x)
 {
-	data->raycast.cameraX = 2 * x / (double)1280 - 1;
-	data->raycast.raydirX = data->dir_x + data->plane_x * data->raycast.cameraX;
-	data->raycast.raydirY = data->dir_y + data->plane_y * data->raycast.cameraX;
-	data->raycast.mapX = (int)data->pos_x;
-	data->raycast.mapY = (int)data->pos_y;
-	data->raycast.deltaDistX = fabs(1 / data->raycast.raydirX);
-	data->raycast.deltaDistY = fabs(1 / data->raycast.raydirY);
+	data->raycast.camera_x = 2 * x / (double)1280 - 1;
+	data->raycast.raydir_x = data->dir_x + data->plane_x
+		* data->raycast.camera_x;
+	data->raycast.raydir_y = data->dir_y + data->plane_y
+		* data->raycast.camera_x;
+	data->raycast.map_x = (int)data->pos_x;
+	data->raycast.map_y = (int)data->pos_y;
+	data->raycast.delta_dist_x = fabs(1 / data->raycast.raydir_x);
+	data->raycast.delta_dist_y = fabs(1 / data->raycast.raydir_y);
 }
 
 void	init_struct(t_data *data)
