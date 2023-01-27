@@ -24,7 +24,6 @@ void	get_map(t_data *data, t_info *info, char **map)
 	free_map(map);
 }
 
-//traitement fd -> char *
 static char	*convert_map(char **file)
 {
 	int		fd;
@@ -49,7 +48,6 @@ static char	*convert_map(char **file)
 	return (str);
 }
 
-//traitement fd -> char * -> char **
 char	**make_map(char **file)
 {
 	char	*str;

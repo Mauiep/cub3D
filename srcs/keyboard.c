@@ -5,7 +5,7 @@
 */
 int     ft_exit(t_data *data)
 {
-    free_data(data);
+    free_all(data);
     exit(0);
     return (0);
 }
@@ -17,39 +17,20 @@ int     ft_exit(t_data *data)
 */
 int     key_pressed(int key, t_data *data)
 {
-    printf("key = %d\n", key);
     if (key == 65307)
         ft_exit(data);
     else if (key == 122)
-    {
-        printf("avant\n");
         data->move_forward = 1;
-    }
     else if (key == 115)
-    {
-        printf("recul\n");
         data->move_back = 1;
-    }
     else if (key == 100)
-    {
-        printf("droite\n");
         data->move_right = 1;
-    }
     else if (key == 113)
-    {
-        printf("gauche\n");
         data->move_left = 1;
-    }
     else if (key == 65361)
-    {
-        printf("rotation gauche\n");
         data->rot_left = 1;
-    } 
-    else if (key == 65363) //
-    {
-        printf("rotation droite\n");
+    else if (key == 65363)
         data->rot_right = 1;
-    }
     else
         return (0);
     return (1);

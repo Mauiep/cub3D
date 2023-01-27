@@ -146,5 +146,7 @@ int	get_elem_map(t_data *data, t_info *info, char **map)
 			return (-1);
 		i++;
 	}
+	if (check_file(data) == -1)
+		return (-1);
 	return (1);
 }

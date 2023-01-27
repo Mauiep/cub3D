@@ -3,19 +3,21 @@ NAME = cub3D
 SRCS =	srcs/main.c \
 		srcs/free.c \
 		srcs/make_map.c \
-		srcs/init_data.c \
+		srcs/init_all.c \
+		srcs/init_texture.c \
+		srcs/init_position.c \
 		srcs/get_elem.c \
 		srcs/utils.c \
-		srcs/convert_color.c \
 		srcs/gameplay.c \
-		srcs/pos_player.c \
 		srcs/keyboard.c \
 		srcs/raycast.c \
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \
 		srcs/parsing/parsing_elem.c \
+		srcs/parsing/parsing_utils.c \
 		srcs/draw.c \
+		\
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c
 
