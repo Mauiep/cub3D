@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_elem.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admaupie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 23:35:59 by admaupie          #+#    #+#             */
+/*   Updated: 2023/02/24 23:36:00 by admaupie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3D.h"
 
 /*
@@ -143,7 +155,7 @@ int	get_elem_map(t_data *data, t_info *info, char **map)
 	while (i < info->index)
 	{
 		if (get_textures(data, map[i]) == -1)
-			return (-1);
+			return (free_map(map), -1);
 		i++;
 	}
 	if (check_file(data) == -1)

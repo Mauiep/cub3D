@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyboard.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admaupie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 23:35:51 by admaupie          #+#    #+#             */
+/*   Updated: 2023/02/24 23:35:53 by admaupie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3D.h"
 
 /*
@@ -21,13 +33,13 @@ int	key_pressed(int key, t_data *data)
 {
 	if (key == 65307)
 		ft_exit(data);
-	else if (key == 122)
+	else if (key == 119)
 		data->move_forward = 1;
 	else if (key == 115)
 		data->move_back = 1;
 	else if (key == 100)
 		data->move_right = 1;
-	else if (key == 113)
+	else if (key == 97)
 		data->move_left = 1;
 	else if (key == 65361)
 		data->rot_left = 1;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admaupie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 23:34:59 by admaupie          #+#    #+#             */
+/*   Updated: 2023/02/24 23:35:02 by admaupie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3D.h"
 
 /*
@@ -45,11 +57,19 @@ long int	convert_color(char *line)
 {
 	long int	result;
 	char		**tmp;
+	long int	r;
+	long int	g;
+	long int	b;
 
 	result = 0;
 	tmp = ft_split(line, ',');
 	if (!tmp)
 		return (-1);
-	result = ft_atoi(tmp[0]) * 65536 + ft_atoi(tmp[1]) * 256 + ft_atoi(tmp[2]);
+	r = ft_atoi(tmp[0]);
+	g = ft_atoi(tmp[1]);
+	b = ft_atoi(tmp[2]);
+	if (r > 255 || g > 255 || b > 255)
+		return (-1);
+	result = r * 65536 + g * 256 + b;
 	return (free(tmp[2]), free(tmp[1]), free(tmp[0]), free(tmp), result);
 }

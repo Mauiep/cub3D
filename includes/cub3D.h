@@ -133,7 +133,7 @@ int			init_all(t_data *data, t_info *info, char **map);
 int			init_data(t_data *data, t_info *info, char **map);
 int			init_texture(t_data *data);
 int			init_buffer(t_data *data);
-void		load_texture(t_data *data);
+int			load_texture(t_data *data);
 int			get_elem_map(t_data *data, t_info *info, char **map);
 long int	convert_color(char *line);
 
@@ -142,7 +142,7 @@ long int	convert_color(char *line);
 */
 
 char		**make_map(char **file);
-void		get_map(t_data *data, t_info *info, char **map);
+int			get_map(t_data *data, t_info *info, char **map);
 
 /*
 	Gameplay

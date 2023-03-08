@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admaupie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 23:36:44 by admaupie          #+#    #+#             */
+/*   Updated: 2023/02/24 23:36:45 by admaupie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3D.h"
 
 /*
@@ -9,12 +21,12 @@
 */
 void	ft_error_2(t_data *data, int index)
 {
-	if (index == 1)
+	if (index == 1)// N'EST JAMAIS UTILISE
 		ft_putstr_fd("Error: same textures\n", 1);
-	else if (index == 2)
+	else if (index == 2)// N'EST JAMAIS UTILISE 
 		ft_putstr_fd("Error: elem textures\n", 1);
 	else if (index == 3)
-		ft_putstr_fd("Error init_all\n", 1);
+		ft_putstr_fd("Error\n", 1);
 	else if (index == 4)
 	{
 		ft_putstr_fd("Error: malloc texture/buffer\n", 1);
@@ -30,9 +42,9 @@ void	ft_error_2(t_data *data, int index)
 void	ft_error(int id, char **map)
 {
 	if (id == 0)
-		ft_putstr_fd("Error: elem map\n", 1);
+		ft_putstr_fd("Error\n", 1);
 	else if (id == 1)
-		ft_putstr_fd("Error: map\n", 1);
+		ft_putstr_fd("Error\n", 1);
 	free_map(map);
 	exit(0);
 }

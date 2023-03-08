@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_elem.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admaupie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 23:37:39 by admaupie          #+#    #+#             */
+/*   Updated: 2023/02/24 23:37:40 by admaupie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3D.h"
 
 //verifie si le nombre d'element est OK
@@ -53,7 +65,7 @@ int	check_value_color(char *line)
 
 	i = 0;
 	while (line[i] == 'F' || line[i] == 'C' || line[i] == ' ')
-		i++;
+		i++;//				DEBUT PREMIER INT
 	if (line[i] == ',')
 		return (0);
 	while (line[i])
@@ -61,6 +73,8 @@ int	check_value_color(char *line)
 		if (line[i] != ',' && (line[i] < '0' || line[i] > '9'))
 			return (0);
 		if (line[i] == ',' && line[i + 1] == ',')
+			return (0);
+		if (line[i] == ',' && line[i + 1] == '\0')
 			return (0);
 		i++;
 	}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_all.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admaupie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 23:35:34 by admaupie          #+#    #+#             */
+/*   Updated: 2023/02/24 23:35:35 by admaupie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3D.h"
 
 /*
@@ -35,11 +47,11 @@ void	init_struct(t_data *data)
 int	init_data(t_data *data, t_info *info, char **map)
 {
 	if (get_elem_map(data, info, map) == -1)
-		return (-1);
+		return (-1);//proteger l'erreur de malloc, voir ce qu'il y a a free
 	get_map(data, info, map);
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (-2);
+		return (-2);//proteger l'erreur, voir ce qu'il y a a free
 	data->win = mlx_new_window(data->mlx, 1280, 720, "cub3D");
 	data->img = mlx_new_image(data->mlx, 1280, 720);
 	data->addr = (int *)mlx_get_data_addr(data->img, &data->bits_per_pixel,
@@ -49,12 +61,15 @@ int	init_data(t_data *data, t_info *info, char **map)
 
 int	init_all(t_data *data, t_info *info, char **map)
 {
+	data->map = NULL;
+	data->texture = NULL;
 	if (init_data(data, info, map) < 0)
 		ft_error_2(data, 3);
 	init_struct(data);
 	init_position(data);
 	if (init_buffer(data) < 0 || init_texture(data) < 0)
 		ft_error_2(data, 4);
-	load_texture(data);
+	if (load_texture(data) < 0)
+		return (free_all(data), -1);
 	return (1);
 }
