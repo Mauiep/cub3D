@@ -26,18 +26,20 @@ void	ft_printmap(int		*minimap, t_data *data, int x, int y)
 {
 	int	a;
 	int	b;
-	
+
 	a = x / 10 + (int)(data->pos_x + 0.5) - 10;
 	b = y / 10 + (int)(data->pos_y + 0.5) - 10;
 	if ((a < 0 || a >= ft_strllen(data->map))
-			|| b < 0 || b >= (int)ft_strlen(data->map[0]))
-		minimap[x * 200 + y] = 8405604;
+		|| b < 0 || b >= (int)ft_strlen(data->map[a]))
+		minimap[x * 200 + y] = 7545412;
 	else if ((y >= 98 && y <= 102) && (x >= 98 && x <= 102))
 		minimap[x * 200 + y] = data->color_c + 200;
-	else if (data->map[a][b] == '1')
-		minimap[x * 200 + y] = 8405604;
-	else if (data->map[a][b] == '0' || data->map[a][b] == ' ')
-		minimap[x * 200 + y] = 14722245;
+	else if (data->map[a][b] == '1' || data->map[a][b] == ' ')
+		minimap[x * 200 + y] = 7545412;
+	else if (data->map[a][b] == '0')
+		minimap[x * 200 + y] = 13938366;
+	else
+		minimap[x * 200 + y] = 7545412;
 }
 
 void	*ft_minimap(t_data *data)
@@ -68,7 +70,7 @@ void	*ft_minimap(t_data *data)
 }
 
 /*
-	fonction dans boucle loop hook
+	Fonction routine du loop hook
 */
 
 int	update(t_data *data)
@@ -104,18 +106,6 @@ int	main(int ac, char **av)
 	map = make_map(&av[1]);
 	if (!map)
 		return (0);
-	int i = 0;
-	while (map[i])
-	{
-		int j = 0;
-		while (map[i][j])
-		{
-			write(1, &map[i][j], 1);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
 	parsing_map(map, &info);
 	if (init_all(&data, &info, map) < 0)
 		return (-1);

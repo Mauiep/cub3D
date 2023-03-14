@@ -58,14 +58,13 @@ int	check_elem_line(char *line, t_info *info)
 		return (0);
 }
 
-//check si la ligne F ou C contient des nombres ou virgules
 int	check_value_color(char *line)
 {
 	int	i;
 
 	i = 0;
 	while (line[i] == 'F' || line[i] == 'C' || line[i] == ' ')
-		i++;//				DEBUT PREMIER INT
+		i++;
 	if (line[i] == ',')
 		return (0);
 	while (line[i])

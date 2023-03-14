@@ -19,13 +19,10 @@
 	/!\ A VERIFIER /!\
 	FT_ERROR_2 CALL DANS INIT_ALL
 */
+
 void	ft_error_2(t_data *data, int index)
 {
-	if (index == 1)// N'EST JAMAIS UTILISE
-		ft_putstr_fd("Error: same textures\n", 1);
-	else if (index == 2)// N'EST JAMAIS UTILISE 
-		ft_putstr_fd("Error: elem textures\n", 1);
-	else if (index == 3)
+	if (index == 3)
 		ft_putstr_fd("Error\n", 1);
 	else if (index == 4)
 	{
@@ -39,6 +36,7 @@ void	ft_error_2(t_data *data, int index)
 /*
 	free et quitte le programme pour cause d'erreur de parsing de la map
 */
+
 void	ft_error(int id, char **map)
 {
 	if (id == 0)

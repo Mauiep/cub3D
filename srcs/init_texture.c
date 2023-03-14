@@ -92,7 +92,7 @@ int	load_texture(t_data *data)
 		return (-1);
 	if (load_image(data, data->texture[1], data->so, &img) < 0)
 		return (-1);
-	if (load_image(data, data->texture[2], data->ea, &img) < 0)	
+	if (load_image(data, data->texture[2], data->ea, &img) < 0)
 		return (-1);
 	if (load_image(data, data->texture[3], data->we, &img) < 0)
 		return (-1);
