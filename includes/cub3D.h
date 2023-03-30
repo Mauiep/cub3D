@@ -13,6 +13,11 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# define MHEIGHT   720
+# define MHEIGHT_2 360
+# define MWIDTH_2 640
+# define MWIDTH 1280
+
 # include "../libft/libft.h"
 # include "../gnl/get_next_line.h"
 # include "../mlx/mlx.h"
@@ -79,6 +84,9 @@ typedef struct s_raycast
 	double	tex_pos;
 	double	step;
 	int		color;
+
+	int		n_draws;
+	int		n_drawe;
 
 }				t_raycast;
 
@@ -160,8 +168,8 @@ int			get_map(t_data *data, t_info *info, char **map);
 	Gameplay
 */
 
+void		move_player(t_data *data);
 void		keyboard(t_data *data);
-void		gameplay(t_data *data);
 void		init_position(t_data *data);
 
 /*
@@ -200,5 +208,11 @@ void		free_data(t_data *data);
 
 int			count_line_map(char **map);
 int			ft_strcmp(char *s1, char *s2);
+
+/*
+	Mouse
+*/
+
+int			mouse_move(t_data *data);
 
 #endif

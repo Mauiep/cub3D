@@ -47,11 +47,11 @@ void	init_struct(t_data *data)
 int	init_data(t_data *data, t_info *info, char **map)
 {
 	if (get_elem_map(data, info, map) == -1)
-		return (-1);//proteger l'erreur de malloc, voir ce qu'il y a a free
+		return (-1);
 	get_map(data, info, map);
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (-2);//proteger l'erreur, voir ce qu'il y a a free
+		return (-2);
 	data->win = mlx_new_window(data->mlx, 1280, 720, "cub3D");
 	data->img = mlx_new_image(data->mlx, 1280, 720);
 	data->addr = (int *)mlx_get_data_addr(data->img, &data->bits_per_pixel,

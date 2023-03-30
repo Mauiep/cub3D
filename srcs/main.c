@@ -31,15 +31,15 @@ void	ft_printmap(int		*minimap, t_data *data, int x, int y)
 	b = y / 10 + (int)(data->pos_y + 0.5) - 10;
 	if ((a < 0 || a >= ft_strllen(data->map))
 		|| b < 0 || b >= (int)ft_strlen(data->map[a]))
-		minimap[x * 200 + y] = 7545412;
+		minimap[x * 200 + y] = 4545411;
 	else if ((y >= 98 && y <= 102) && (x >= 98 && x <= 102))
-		minimap[x * 200 + y] = data->color_c + 200;
+		minimap[x * 200 + y] = 255;
 	else if (data->map[a][b] == '1' || data->map[a][b] == ' ')
-		minimap[x * 200 + y] = 7545412;
+		minimap[x * 200 + y] = 4545411;
 	else if (data->map[a][b] == '0')
-		minimap[x * 200 + y] = 13938366;
+		minimap[x * 200 + y] = 13938360;
 	else
-		minimap[x * 200 + y] = 7545412;
+		minimap[x * 200 + y] = 4545411;
 }
 
 void	*ft_minimap(t_data *data)
@@ -79,7 +79,8 @@ int	update(t_data *data)
 	void	*map;
 
 	x = 0;
-	gameplay(data);
+	move_player(data);
+	mouse_move(data);
 	ft_raycast(data, x);
 	map = ft_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);

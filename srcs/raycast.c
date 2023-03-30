@@ -120,12 +120,18 @@ void	draw_start_end(t_data *data)
 				+ (1 - data->raycast.step_y) / 2) / data->raycast.raydir_y;
 	}
 	data->raycast.line_height = (int)(720 / data->raycast.perp_wall_dist);
-	data->raycast.draw_start = -data->raycast.line_height / 2 + 720 / 2;
+	data->raycast.draw_start = data->raycast.n_draws;
+	data->raycast.draw_end = data->raycast.n_draws;
+	data->raycast.draw_start += -data->raycast.line_height / 2 + MHEIGHT_2;
+	data->raycast.draw_end += data->raycast.line_height / 2 + MHEIGHT_2;
 	if (data->raycast.draw_start < 0)
 		data->raycast.draw_start = 0;
-	data->raycast.draw_end = data->raycast.line_height / 2 + 720 / 2;
 	if (data->raycast.draw_end >= 720)
 		data->raycast.draw_end = 720 - 1;
+	if (data->raycast.draw_end <= 0)
+		data->raycast.draw_end = 0;
+	if (data->raycast.draw_start >= 720)
+		data->raycast.draw_start = 720 - 1;
 }
 
 /*
@@ -135,8 +141,8 @@ void	draw_start_end(t_data *data)
 void	add_texture(t_data *data, int x, int y)
 {
 	data->raycast.step = 1.0 * 64 / data->raycast.line_height;
-	data->raycast.tex_pos = (data->raycast.draw_start - 720 / 2
-			+ data->raycast.line_height / 2) * data->raycast.step;
+	data->raycast.tex_pos = (data->raycast.draw_start - data->raycast.n_draws
+			- MHEIGHT_2 + data->raycast.line_height / 2) * data->raycast.step;
 	if (data->raycast.side == 0 && data->raycast.raydir_x > 0)
 		data->raycast.tex_x = 64 - data->raycast.tex_x - 1;
 	if (data->raycast.side == 1 && data->raycast.raydir_y < 0)

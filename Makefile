@@ -12,6 +12,7 @@ SRCS =	srcs/main.c \
 		srcs/keyboard.c \
 		srcs/raycast.c \
 		srcs/ft_error.c \
+		srcs/mouse.c 	\
 		\
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/check_map.c \

@@ -82,7 +82,7 @@ void	rotation_player(t_data *data, double old_dir_x, double old_plane_x)
 		data->plane_y = old_plane_x * sin(-data->speedrot)
 			+ data->plane_y * cos(-data->speedrot);
 	}
-	else if (data->rot_left)
+	if (data->rot_left)
 	{
 		data->dir_x = data->dir_x * cos(data->speedrot)
 			- data->dir_y * sin(data->speedrot);
@@ -97,29 +97,21 @@ void	rotation_player(t_data *data, double old_dir_x, double old_plane_x)
 
 /*
     Verifie au prealable ce que va faire le personnage
+	Fonction du loop hook
 */
 
 void	move_player(t_data *data)
 {
-	if (data->move_forward || data->move_back)
+	if (data->move_forward)
 		move_back_foward(data);
-	else if (data->move_right || data->move_left)
+	if (data->move_back)
+		move_back_foward(data);
+	if (data->move_right)
 		move_right_left(data);
-	else if (data->rot_left || data->rot_right)
+	if (data->move_left)
+		move_right_left(data);
+	if (data->rot_right)
 		rotation_player(data, data->dir_x, data->plane_x);
-}
-
-/*
-    Gameplay dans hoop look
-*/
-
-void	gameplay(t_data *data)
-{
-	move_player(data);
-	data->move_forward = 0;
-	data->move_back = 0;
-	data->move_right = 0;
-	data->move_left = 0;
-	data->rot_left = 0;
-	data->rot_right = 0;
+	if (data->rot_left)
+		rotation_player(data, data->dir_x, data->plane_x);
 }

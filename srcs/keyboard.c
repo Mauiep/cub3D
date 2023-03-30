@@ -33,18 +33,39 @@ int	key_pressed(int key, t_data *data)
 {
 	if (key == 65307)
 		ft_exit(data);
-	else if (key == 119)
+	if (key == 119)
 		data->move_forward = 1;
-	else if (key == 115)
+	if (key == 115)
 		data->move_back = 1;
-	else if (key == 100)
+	if (key == 100)
 		data->move_right = 1;
-	else if (key == 97)
+	if (key == 97)
 		data->move_left = 1;
-	else if (key == 65361)
+	if (key == 65361)
 		data->rot_left = 1;
-	else if (key == 65363)
+	if (key == 65363)
 		data->rot_right = 1;
+	else
+		return (0);
+	return (1);
+}
+
+int	key_release(int key, t_data *data)
+{
+	if (key == 65307)
+		ft_exit(data);
+	if (key == 119)
+		data->move_forward = 0;
+	if (key == 115)
+		data->move_back = 0;
+	if (key == 100)
+		data->move_right = 0;
+	if (key == 97)
+		data->move_left = 0;
+	if (key == 65361)
+		data->rot_left = 0;
+	if (key == 65363)
+		data->rot_right = 0;
 	else
 		return (0);
 	return (1);
@@ -57,5 +78,6 @@ int	key_pressed(int key, t_data *data)
 void	keyboard(t_data *data)
 {
 	mlx_hook(data->win, 2, 1L << 0, key_pressed, data);
+	mlx_hook(data->win, 3, 1L << 1, key_release, data);
 	mlx_hook(data->win, 17, 0, ft_exit, data);
 }
