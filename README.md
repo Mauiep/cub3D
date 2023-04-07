@@ -11,6 +11,7 @@ To run the program, navigate to the project directory and run the following comm
 make
 ./cub3D maps/map.cub
 ```
+In cub3D you can move with **W**, **A**, **S**, **D** and turn around with the **mouse** or with **left** and **right** arrow. 
 
 ## Map Rules
 
