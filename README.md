@@ -43,12 +43,12 @@ C 117,115,108
 
 ## Preview
 
-Welcome to the raycasted world ! 
+*Welcome to the raycasted world !* 
 
 ![Screenshot from 2023-04-07 21-55-43](https://user-images.githubusercontent.com/31923839/230671432-970fe804-78c5-4115-85fa-371048b413aa.png)
 
 
-## Resources 
+## Ressources 
 
 * [MiniLibX Documentation](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
 * [Lodev raycasting tutorial](https://lodev.org/cgtutor/raycasting.html)
